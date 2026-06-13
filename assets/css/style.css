@@ -428,6 +428,374 @@ h4 {
     font-size: 0.9rem;
 }
 
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+
+.stats-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    margin-top: -2px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   MARKET PRICES TABLE
+   ============================================ */
+
+.prices-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.filter-group select {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    background: white;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: var(--transition);
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(47, 133, 90, 0.1);
+}
+
+.prices-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.prices-table thead {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+.prices-table th {
+    padding: 1rem 1.25rem;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: left;
+    letter-spacing: 0.02em;
+}
+
+.prices-table td {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.prices-table tbody tr {
+    transition: var(--transition);
+}
+
+.prices-table tbody tr:hover {
+    background-color: rgba(47, 133, 90, 0.04);
+}
+
+.prices-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.crop-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(47, 133, 90, 0.1);
+    color: var(--primary-color);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.unit-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(214, 158, 46, 0.15);
+    color: #B7791F;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.price-cell {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1rem;
+}
+
+.loading-data,
+.no-data {
+    text-align: center;
+    padding: 3rem !important;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.loading-data i,
+.loading-placeholder i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* ============================================
+   REGISTRATION FORM
+   ============================================ */
+
+.registration-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.registration-benefits {
+    margin-top: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-item > i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.benefit-item strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+.benefit-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.registration-form-wrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.registration-form {
+    padding: 2.5rem;
+}
+
+.registration-form h3 {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: var(--transition);
+    outline: none;
+    background: white;
+}
+
+.form-group input::placeholder {
+    color: #A0AEC0;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(47, 133, 90, 0.1);
+}
+
+.form-group input:invalid:not(:placeholder-shown) {
+    border-color: #E53E3E;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.form-feedback {
+    display: none;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-feedback.success {
+    display: flex;
+    background: rgba(47, 133, 90, 0.1);
+    color: var(--primary-dark);
+    border: 1px solid rgba(47, 133, 90, 0.3);
+}
+
+.form-feedback.error {
+    display: flex;
+    background: rgba(229, 62, 62, 0.1);
+    color: #C53030;
+    border: 1px solid rgba(229, 62, 62, 0.3);
+}
+
+/* ============================================
+   TESTIMONIAL ENHANCEMENTS
+   ============================================ */
+
+.testimonial-stars {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+.loading-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    grid-column: 1 / -1;
+}
+
+.loading-placeholder p {
+    color: var(--text-muted);
+    font-style: normal;
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATION
+   ============================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   NAVBAR SCROLL EFFECT
+   ============================================ */
+
+.navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 0;
+}
 /* --- Responsive Design (Tablet) --- */
 @media (max-width: 992px) {
     .section-title {
@@ -454,10 +822,35 @@ h4 {
     .sdg-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .registration-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* --- Responsive Design (Mobile) --- */
 @media (max-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 8rem 0 4rem;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
 
     .nav-links,
     .nav-cta {
@@ -466,26 +859,32 @@ h4 {
 
     .mobile-menu-btn {
         display: block;
+        order: 2;
+    }
+
+    .logo {
+        order: 1;
     }
 
     /* Mobile Menu Active State */
     .nav-links.active {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
         width: 100%;
-        background: white;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        background: transparent;
+        padding: 1rem 0 0 0;
         gap: 1rem;
+        order: 3;
+        border-top: 1px solid var(--border-color);
+        margin-top: 1rem;
     }
 
     .nav-cta.active {
         display: block;
-        margin-top: 1rem;
         width: 100%;
+        order: 4;
+        margin-top: 1rem;
+        text-align: center;
     }
 
     .hero-title {
@@ -507,5 +906,35 @@ h4 {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form {
+        padding: 1.5rem;
+    }
+
+    .prices-table {
+        font-size: 0.85rem;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-list {
+        display: inline-block;
+        text-align: left;
     }
 }

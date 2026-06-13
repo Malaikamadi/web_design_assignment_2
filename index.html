@@ -24,8 +24,9 @@
             <nav class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
+                <a href="#prices">Prices</a>
                 <a href="#features">Features</a>
-                <a href=""></a>
+                <a href="#testimonials">Stories</a>
                 <a href="#sdg">Impact</a>
             </nav>
             <a href="#join" class="btn btn-primary nav-cta">Join Now</a>
@@ -41,9 +42,37 @@
             <p class="hero-subtitle">Direct market access, real-time crop pricing, and fair trade connections right at
                 your fingertips.</p>
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary btn-large">Join as a Farmer</a>
-                <a href="#about" class="btn btn-primary btn-large">Get Market Prices</a>
+                <a href="#join" class="btn btn-primary btn-large">Join as a Farmer</a>
+                <a href="#prices" class="btn btn-primary btn-large">Get Market Prices</a>
                 <a href="#features" class="btn btn-outline btn-large">Find Buyers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Stats Section -->
+    <section class="section stats-section" id="stats">
+        <div class="container">
+            <div class="stats-grid reveal">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-number" id="stat-farmers">0</div>
+                    <div class="stat-label">Active Farmers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-store"></i></div>
+                    <div class="stat-number" id="stat-buyers">0</div>
+                    <div class="stat-label">Verified Buyers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="stat-number" id="stat-crops">0</div>
+                    <div class="stat-label">Crops Tracked</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                    <div class="stat-number" id="stat-orders">0</div>
+                    <div class="stat-label">Trades Completed</div>
+                </div>
             </div>
         </div>
     </section>
@@ -51,7 +80,7 @@
     <!-- Problem & Solution Section (About) -->
     <section class="section about" id="about">
         <div class="container">
-            <div class="about-grid">
+            <div class="about-grid reveal">
                 <div class="about-text">
                     <span class="section-badge">The Problem & Solution</span>
                     <h2 class="section-title">Bridging the Gap from Farm to Market</h2>
@@ -75,15 +104,57 @@
         </div>
     </section>
 
+    <!-- Market Prices Section (Database-driven) -->
+    <section class="section prices bg-light" id="prices">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge"><i class="fa-solid fa-database"></i> Live from Database</span>
+                <h2 class="section-title">Today's Market Prices</h2>
+                <p class="section-desc center-desc">Real-time crop prices from markets across Sierra Leone, updated
+                    daily and stored in our PostgreSQL database.</p>
+            </div>
+
+            <div class="prices-controls reveal">
+                <div class="filter-group">
+                    <label for="price-filter-crop"><i class="fa-solid fa-filter"></i> Filter by Crop:</label>
+                    <select id="price-filter-crop">
+                        <option value="">All Crops</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="prices-table-wrapper reveal">
+                <table class="prices-table" id="prices-table">
+                    <thead>
+                        <tr>
+                            <th>Crop</th>
+                            <th>Market</th>
+                            <th>Price</th>
+                            <th>Unit</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prices-table-body">
+                        <tr>
+                            <td colspan="5" class="loading-data">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Loading market prices...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
-    <section class="section features bg-light" id="features">
+    <section class="section features" id="features">
         <div class="container text-center">
             <span class="section-badge">Platform Features</span>
             <h2 class="section-title">Everything You Need to Succeed</h2>
             <p class="section-desc center-desc">Our tools are designed to be accessible, intuitive, and highly
                 beneficial for both farmers and buyers.</p>
 
-            <div class="features-grid">
+            <div class="features-grid reveal">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
                     <h3>Real-Time Pricing</h3>
@@ -101,41 +172,140 @@
                 </div>
             </div>
 
-            <div class="app-preview">
+            <div class="app-preview reveal">
                 <img src="assets/images/mobile_app_prices_1778826886481.png"
                     alt="Farmer using the Salone FarmHub mobile app" class="preview-img">
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Database-driven) -->
     <section class="section testimonials" id="testimonials">
         <div class="container text-center">
             <span class="section-badge">Farmer Stories</span>
             <h2 class="section-title">What Our Users Say</h2>
-            <p class="section-desc center-desc">Real feedback from smallholder farmers and buyers who have experienced better market access with Salone FarmHub.</p>
-            <div class="testimonials-grid">
-                <article class="testimonial-card">
-                    <p>“Salone FarmHub helped me sell my cassava at a fair price and connect with buyers in Freetown. I no longer wait weeks for market updates.”</p>
-                    <div class="testimonial-author">
-                        <strong>Adama Kamara</strong>
-                        <span>Rice Farmer, Kenema</span>
-                    </div>
+            <p class="section-desc center-desc">Real feedback from smallholder farmers and buyers who have experienced
+                better market access with Salone FarmHub.</p>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Testimonials loaded dynamically from PostgreSQL database -->
+                <article class="testimonial-card loading-placeholder">
+                    <p><i class="fa-solid fa-spinner fa-spin"></i> Loading testimonials...</p>
                 </article>
-                <article class="testimonial-card">
-                    <p>“The platform is simple to use, and the prices are accurate. I can now plan my harvest better and keep more profit in my family.”</p>
-                    <div class="testimonial-author">
-                        <strong>Nene Jalloh</strong>
-                        <span>Vegetable Grower, Bo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farmer Registration Section (Database-connected) -->
+    <section class="section registration bg-light" id="join">
+        <div class="container">
+            <div class="registration-grid reveal">
+                <div class="registration-info">
+                    <span class="section-badge"><i class="fa-solid fa-database"></i> Saved to Database</span>
+                    <h2 class="section-title">Join Salone FarmHub</h2>
+                    <p class="section-desc">Register as a farmer to access real-time market prices, connect with
+                        verified buyers, and grow your income. Your information is securely stored in our PostgreSQL
+                        database.</p>
+                    <div class="registration-benefits">
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div>
+                                <strong>Secure & Private</strong>
+                                <p>Your data is protected with industry-standard security.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-bolt"></i>
+                            <div>
+                                <strong>Instant Access</strong>
+                                <p>Start receiving market prices and buyer connections immediately.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-money-bill-trend-up"></i>
+                            <div>
+                                <strong>Free Forever</strong>
+                                <p>No fees, no subscriptions. A true Digital Public Good.</p>
+                            </div>
+                        </div>
                     </div>
-                </article>
-                <article class="testimonial-card">
-                    <p>“Buyers trust the data from Salone FarmHub, so I get faster offers and better terms. This has changed our community market.”</p>
-                    <div class="testimonial-author">
-                        <strong>Momoh Conteh</strong>
-                        <span>Market Vendor, Makeni</span>
-                    </div>
-                </article>
+                </div>
+
+                <div class="registration-form-wrapper">
+                    <form id="farmer-registration-form" class="registration-form">
+                        <h3><i class="fa-solid fa-user-plus"></i> Farmer Registration</h3>
+
+                        <div id="form-feedback" class="form-feedback"></div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First Name *</label>
+                                <input type="text" id="first_name" name="first_name" placeholder="e.g. Adama"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name *</label>
+                                <input type="text" id="last_name" name="last_name" placeholder="e.g. Kamara"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="e.g. adama@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="e.g. +23276000001" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="district">District *</label>
+                                <select id="district" name="district" required>
+                                    <option value="">Select District</option>
+                                    <option value="Bo">Bo</option>
+                                    <option value="Bombali">Bombali</option>
+                                    <option value="Bonthe">Bonthe</option>
+                                    <option value="Falaba">Falaba</option>
+                                    <option value="Kailahun">Kailahun</option>
+                                    <option value="Kambia">Kambia</option>
+                                    <option value="Karene">Karene</option>
+                                    <option value="Kenema">Kenema</option>
+                                    <option value="Koinadugu">Koinadugu</option>
+                                    <option value="Kono">Kono</option>
+                                    <option value="Moyamba">Moyamba</option>
+                                    <option value="Port Loko">Port Loko</option>
+                                    <option value="Pujehun">Pujehun</option>
+                                    <option value="Tonkolili">Tonkolili</option>
+                                    <option value="Western Area Rural">Western Area Rural</option>
+                                    <option value="Western Area Urban">Western Area Urban</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="chiefdom">Chiefdom</label>
+                                <input type="text" id="chiefdom" name="chiefdom" placeholder="e.g. Nongowa">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="village">Village</label>
+                                <input type="text" id="village" name="village" placeholder="e.g. Blama">
+                            </div>
+                            <div class="form-group">
+                                <label for="farm_size_acres">Farm Size (acres)</label>
+                                <input type="number" id="farm_size_acres" name="farm_size_acres" step="0.1" min="0"
+                                    placeholder="e.g. 5.5">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-submit">
+                            <i class="fa-solid fa-paper-plane"></i> Register Now
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -150,7 +320,7 @@
                     Sustainable Development Goals.</p>
             </div>
 
-            <div class="sdg-grid">
+            <div class="sdg-grid reveal">
                 <div class="sdg-card">
                     <div class="sdg-number">1</div>
                     <h3>No Poverty</h3>
@@ -184,6 +354,7 @@
                 <h4>Quick Links</h4>
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
+                <a href="#prices">Prices</a>
                 <a href="#features">Features</a>
                 <a href="#sdg">Impact</a>
             </div>
@@ -197,6 +368,9 @@
             <p>&copy; 2026 Salone FarmHub. Designed for Web Design Assignment 2, By Alimatu Maliaka Jalloh.</p>
         </div>
     </footer>
+
+    <!-- Frontend Application Script -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

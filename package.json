@@ -1,0 +1,24 @@
+{
+  "name": "salone-farmhub",
+  "version": "1.0.0",
+  "description": "Salone FarmHub — Digital Public Good for Sierra Leone's farmers. PostgreSQL-backed agricultural marketplace.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "db:create": "createdb salone_farmhub",
+    "db:schema": "psql -d salone_farmhub -f db/schema.sql",
+    "db:seed": "psql -d salone_farmhub -f db/seed.sql",
+    "db:setup": "npm run db:create && npm run db:schema && npm run db:seed",
+    "db:reset": "dropdb --if-exists salone_farmhub && npm run db:setup"
+  },
+  "keywords": ["agriculture", "sierra-leone", "marketplace", "dpg"],
+  "author": "Alimatu Maliaka Jalloh",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  }
+}
