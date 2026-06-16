@@ -15,6 +15,14 @@ const { query } = require('./db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Netlify path rewrite middleware (maps Netlify function path to standard API paths)
+app.use((req, res, next) => {
+    if (req.url.startsWith('/.netlify/functions/api')) {
+        req.url = req.url.replace('/.netlify/functions/api', '/api');
+    }
+    next();
+});
+
 // ============================================
 // MIDDLEWARE
 // ============================================
