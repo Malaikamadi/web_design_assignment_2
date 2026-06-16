@@ -1,7 +1,8 @@
 # Salone FarmHub
 
-## Web Design Assignment 2
+## Web Design Final PRoject
 * Alimatu Maliaka Jalloh 905004463 BSEM1202
+* Isha Dawonde 905005545 BSEM1202
 
 ## Overview
 **Salone FarmHub** is a conceptual Digital Public Good (DPG) designed to address the challenges faced by smallholder farmers in rural Sierra Leone. The platform aims to bridge the gap from farm to market by connecting farmers directly with wholesale buyers and local vendors. 
