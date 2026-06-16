@@ -312,11 +312,12 @@ app.get('*', (req, res) => {
 });
 
 // ============================================
-// START SERVER
+// START SERVER / EXPORT
 // ============================================
 
-app.listen(PORT, () => {
-    console.log(`
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`
 ╔══════════════════════════════════════════════╗
 ║        🌿 Salone FarmHub Server 🌿          ║
 ║──────────────────────────────────────────────║
@@ -325,5 +326,9 @@ app.listen(PORT, () => {
 ║  URL:     http://localhost:${PORT}                ║
 ║  Mode:    ${process.env.NODE_ENV || 'development'}                        ║
 ╚══════════════════════════════════════════════╝
-    `);
-});
+        `);
+    });
+}
+
+module.exports = app;
+
