@@ -159,6 +159,12 @@ h4 {
     gap: 2rem;
 }
 
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 .nav-links a {
     font-weight: 600;
     color: var(--text-muted);
@@ -853,6 +859,7 @@ h4 {
     }
 
     .nav-links,
+    .nav-actions,
     .nav-cta {
         display: none;
     }
@@ -879,12 +886,19 @@ h4 {
         margin-top: 1rem;
     }
 
-    .nav-cta.active {
-        display: block;
+    .nav-actions.active {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         order: 4;
         margin-top: 1rem;
         text-align: center;
+        gap: 1rem;
+    }
+
+    .nav-cta.active {
+        display: block;
+        width: 100%;
     }
 
     .hero-title {
@@ -1031,4 +1045,29 @@ h4 {
 .deep-text p {
     font-size: 1.1rem;
     color: var(--text-muted);
+}
+
+/* ============================================
+   RESPONSIVE GRIDS FOR NEW SECTIONS
+   ============================================ */
+@media (max-width: 768px) {
+    .how-grid,
+    .mission-grid,
+    .values-grid,
+    .deep-dive-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .deep-dive-grid.reverse .deep-text {
+        order: 1; /* Reset order on mobile so text is always above image */
+    }
+
+    .deep-dive-grid.reverse .deep-image {
+        order: 2;
+    }
+
+    .how-icon {
+        margin: -4rem auto 1rem;
+    }
 }

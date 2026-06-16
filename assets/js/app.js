@@ -55,15 +55,17 @@ function formatDate(dateStr) {
 function initMobileMenu() {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    const navCta = document.querySelector('.nav-cta');
+    const navActions = document.querySelector('.nav-actions');
 
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            if (navCta) navCta.classList.toggle('active');
+            if (navLinks) navLinks.classList.toggle('active');
+            if (navActions) navActions.classList.toggle('active');
             const icon = menuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
         });
     }
 }
