@@ -294,11 +294,46 @@ function initScrollReveal() {
 }
 
 // ============================================
+// AUTHENTICATION UI LOGIC
+// ============================================
+
+function initAuthUI() {
+    const token = localStorage.getItem('token');
+    const userStr = localStorage.getItem('user');
+    
+    if (token && userStr) {
+        try {
+            const user = JSON.parse(userStr);
+            // Extract the part of email before @ for the name
+            const name = user.email.split('@')[0];
+            const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+            
+            const navActions = document.querySelector('.nav-actions');
+            if (navActions) {
+                navActions.innerHTML = `
+                    <span style="font-weight: 600; color: var(--text-main); margin-right: 0.5rem;">Welcome, <span style="color: var(--primary-color);">${formattedName}</span></span>
+                    <button onclick="logout()" class="btn btn-outline" style="border-color: var(--primary-color); color: var(--primary-color); padding: 0.4rem 1.2rem; min-width: auto; height: auto;">Logout</button>
+                `;
+            }
+        } catch (e) {
+            console.error('Error parsing user data', e);
+        }
+    }
+}
+
+window.logout = function() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.reload();
+};
+
+// ============================================
 // INITIALIZE EVERYTHING
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     // UI interactions
+    initAuthUI();
     initMobileMenu();
     initSmoothScroll();
     initNavbarScroll();

@@ -11,6 +11,8 @@ const path = require('path');
 require('dotenv').config();
 
 const { query } = require('./db');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,11 +34,95 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files (HTML, CSS, JS, images)
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname), { extensions: ['html'] }));
 
 // ============================================
 // API ROUTES
 // ============================================
+
+// ------------------------------------------
+// AUTHENTICATION
+// ------------------------------------------
+
+const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_jwt_key_here';
+
+// POST /api/auth/register — Register a new user
+app.post('/api/auth/register', async (req, res) => {
+    try {
+        const { email, password, role } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({ success: false, error: 'Email and password are required' });
+        }
+
+        const validRoles = ['farmer', 'user', 'admin'];
+        const userRole = validRoles.includes(role) ? role : 'user';
+
+        // Hash the password
+        const saltRounds = 10;
+        const passwordHash = await bcrypt.hash(password, saltRounds);
+
+        const result = await query(
+            `INSERT INTO users (email, password_hash, role)
+             VALUES ($1, $2, $3)
+             RETURNING id, email, role, created_at`,
+            [email, passwordHash, userRole]
+        );
+
+        res.status(201).json({ success: true, data: result.rows[0] });
+    } catch (err) {
+        if (err.code === '23505') {
+            return res.status(409).json({ success: false, error: 'A user with this email already exists' });
+        }
+        console.error('Error registering user:', err);
+        res.status(500).json({ success: false, error: 'Failed to register user' });
+    }
+});
+
+// POST /api/auth/login — Login a user
+app.post('/api/auth/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({ success: false, error: 'Email and password are required' });
+        }
+
+        const result = await query('SELECT * FROM users WHERE email = $1', [email]);
+        const user = result.rows[0];
+
+        if (!user) {
+            return res.status(401).json({ success: false, error: 'Invalid email or password' });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password_hash);
+        if (!isMatch) {
+            return res.status(401).json({ success: false, error: 'Invalid email or password' });
+        }
+
+        // Generate JWT token
+        const token = jwt.sign(
+            { id: user.id, email: user.email, role: user.role },
+            JWT_SECRET,
+            { expiresIn: '24h' }
+        );
+
+        res.json({
+            success: true,
+            data: {
+                token,
+                user: {
+                    id: user.id,
+                    email: user.email,
+                    role: user.role
+                }
+            }
+        });
+    } catch (err) {
+        console.error('Error logging in:', err);
+        res.status(500).json({ success: false, error: 'Failed to login' });
+    }
+});
 
 // ------------------------------------------
 // CROPS

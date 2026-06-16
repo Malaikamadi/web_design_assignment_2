@@ -13,11 +13,28 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- ============================================
 
 CREATE TYPE user_status AS ENUM ('active', 'inactive', 'pending');
+CREATE TYPE user_role AS ENUM ('farmer', 'user', 'admin');
 CREATE TYPE order_status AS ENUM ('pending', 'confirmed', 'in_transit', 'delivered', 'cancelled');
 CREATE TYPE unit_type AS ENUM ('kg', 'ton', 'bag', 'bunch', 'crate', 'piece');
 
 -- ============================================
--- 1. FARMERS TABLE
+-- 1. USERS TABLE (Authentication)
+-- ============================================
+-- Stores credentials for farmers, users, and admins
+
+CREATE TABLE users (
+    id              UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    email           VARCHAR(255) UNIQUE NOT NULL,
+    password_hash   VARCHAR(255) NOT NULL,
+    role            user_role NOT NULL DEFAULT 'user',
+    created_at      TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at      TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX idx_users_email ON users(email);
+
+-- ============================================
+-- 2. FARMERS TABLE
 -- ============================================
 -- Stores registered farmer profiles
 
@@ -159,6 +176,10 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Apply trigger to tables with updated_at
+CREATE TRIGGER set_users_updated_at
+    BEFORE UPDATE ON users
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
 CREATE TRIGGER set_farmers_updated_at
     BEFORE UPDATE ON farmers
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();

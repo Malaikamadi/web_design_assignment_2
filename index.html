@@ -22,14 +22,17 @@
                 <i class="fa-solid fa-leaf"></i> Salone FarmHub
             </a>
             <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#prices">Prices</a>
-                <a href="#features">Features</a>
-                <a href="#testimonials">Stories</a>
-                <a href="#sdg">Impact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="prices.html">Prices</a>
+                <a href="features.html">Features</a>
+                <a href="stories.html">Stories</a>
+                <a href="impact.html">Impact</a>
             </nav>
-            <a href="#join" class="btn btn-primary nav-cta">Join Now</a>
+            <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                <a href="login.html" class="nav-link" style="font-weight: 600; color: var(--primary-color);">Login</a>
+                <a href="index.html#join" class="btn btn-primary nav-cta">Join Now</a>
+            </div>
             <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
         </div>
     </header>
@@ -42,7 +45,7 @@
             <p class="hero-subtitle">Direct market access, real-time crop pricing, and fair trade connections right at
                 your fingertips.</p>
             <div class="hero-actions">
-                <a href="#join" class="btn btn-primary btn-large">Join as a Farmer</a>
+                <a href="index.html#join" class="btn btn-primary btn-large">Join as a Farmer</a>
                 <a href="#prices" class="btn btn-primary btn-large">Get Market Prices</a>
                 <a href="#features" class="btn btn-outline btn-large">Find Buyers</a>
             </div>
@@ -77,125 +80,51 @@
         </div>
     </section>
 
-    <!-- Problem & Solution Section (About) -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-grid reveal">
-                <div class="about-text">
-                    <span class="section-badge">The Problem & Solution</span>
-                    <h2 class="section-title">Bridging the Gap from Farm to Market</h2>
-                    <p class="section-desc">Smallholder farmers in rural Sierra Leone often lack direct access to
-                        markets and real-time pricing information. This leads to post-harvest losses and exploitation by
-                        middlemen.</p>
-                    <p class="section-desc"><strong>Salone FarmHub</strong> is a Digital Public Good that connects
-                        farmers directly with wholesale buyers and local vendors. Our platform guarantees transparent
-                        pricing, reducing waste and increasing farmer incomes.</p>
-                    <ul class="about-list">
-                        <li><i class="fa-solid fa-check-circle"></i> Direct connections to buyers</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Reduced post-harvest loss</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Increased profit margins</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                    <img src="assets/images/local_market_produce_1778827073254.png"
-                        alt="Fresh produce at a local market in Sierra Leone">
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- Market Prices Section (Database-driven) -->
-    <section class="section prices bg-light" id="prices">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-database"></i> Live from Database</span>
-                <h2 class="section-title">Today's Market Prices</h2>
-                <p class="section-desc center-desc">Real-time crop prices from markets across Sierra Leone, updated
-                    daily and stored in our PostgreSQL database.</p>
-            </div>
+    
 
-            <div class="prices-controls reveal">
-                <div class="filter-group">
-                    <label for="price-filter-crop"><i class="fa-solid fa-filter"></i> Filter by Crop:</label>
-                    <select id="price-filter-crop">
-                        <option value="">All Crops</option>
-                    </select>
-                </div>
-            </div>
+    
 
-            <div class="prices-table-wrapper reveal">
-                <table class="prices-table" id="prices-table">
-                    <thead>
-                        <tr>
-                            <th>Crop</th>
-                            <th>Market</th>
-                            <th>Price</th>
-                            <th>Unit</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="prices-table-body">
-                        <tr>
-                            <td colspan="5" class="loading-data">
-                                <i class="fa-solid fa-spinner fa-spin"></i> Loading market prices...
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- Features Section -->
-    <section class="section features" id="features">
+    
+    <!-- How It Works Section -->
+    <section class="section bg-light" id="how-it-works">
         <div class="container text-center">
-            <span class="section-badge">Platform Features</span>
-            <h2 class="section-title">Everything You Need to Succeed</h2>
-            <p class="section-desc center-desc">Our tools are designed to be accessible, intuitive, and highly
-                beneficial for both farmers and buyers.</p>
-
-            <div class="features-grid reveal">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <h3>Real-Time Pricing</h3>
-                    <p>Access up-to-date market prices via USSD or our mobile app to negotiate better deals.</p>
+            <span class="section-badge">Simple Process</span>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-desc center-desc">Get started in three simple steps.</p>
+            <div class="how-grid reveal">
+                <div class="how-card">
+                    <div class="how-icon">1</div>
+                    <h3>Register</h3>
+                    <p>Create a free account as a Farmer or a Buyer to join our growing network.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>Direct Trade</h3>
-                    <p>Connect instantly with verified wholesale buyers and cut out exploitative middlemen.</p>
+                <div class="how-card">
+                    <div class="how-icon">2</div>
+                    <h3>Check Prices</h3>
+                    <p>View real-time market data to make informed decisions about your crops.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                    <h3>Logistics Support</h3>
-                    <p>Coordinate transport and delivery schedules to ensure fresh produce reaches the market.</p>
+                <div class="how-card">
+                    <div class="how-icon">3</div>
+                    <h3>Trade</h3>
+                    <p>Connect directly, negotiate fair deals, and complete transactions securely.</p>
                 </div>
-            </div>
-
-            <div class="app-preview reveal">
-                <img src="assets/images/mobile_app_prices_1778826886481.png"
-                    alt="Farmer using the Salone FarmHub mobile app" class="preview-img">
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section (Database-driven) -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container text-center">
-            <span class="section-badge">Farmer Stories</span>
-            <h2 class="section-title">What Our Users Say</h2>
-            <p class="section-desc center-desc">Real feedback from smallholder farmers and buyers who have experienced
-                better market access with Salone FarmHub.</p>
-            <div class="testimonials-grid" id="testimonials-container">
-                <!-- Testimonials loaded dynamically from PostgreSQL database -->
-                <article class="testimonial-card loading-placeholder">
-                    <p><i class="fa-solid fa-spinner fa-spin"></i> Loading testimonials...</p>
-                </article>
-            </div>
+    <!-- Why Choose Us -->
+    <section class="section text-center" style="background: var(--primary-dark); color: white;">
+        <div class="container reveal">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Why Choose Salone FarmHub?</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">We are dedicated to providing transparency, empowering local communities, and ensuring that farmers get the best value for their hard work.</p>
+            <a href="about.html" class="btn btn-outline btn-large">Learn More About Us</a>
         </div>
     </section>
 
-    <!-- Farmer Registration Section (Database-connected) -->
+<!-- Farmer Registration Section (Database-connected) -->
     <section class="section registration bg-light" id="join">
         <div class="container">
             <div class="registration-grid reveal">
@@ -308,38 +237,7 @@
         </div>
     </section>
 
-    <!-- SDG Alignment Section -->
-    <section class="section sdg" id="sdg">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge">Our Impact</span>
-                <h2 class="section-title">Aligned with the SDGs</h2>
-                <p class="section-desc center-desc">Our Digital Public Good is deeply committed to the United Nations
-                    Sustainable Development Goals.</p>
-            </div>
-
-            <div class="sdg-grid reveal">
-                <div class="sdg-card">
-                    <div class="sdg-number">1</div>
-                    <h3>No Poverty</h3>
-                    <p>By empowering farmers to access wider markets and transparent pricing, we help them significantly
-                        increase their household income.</p>
-                </div>
-                <div class="sdg-card">
-                    <div class="sdg-number">2</div>
-                    <h3>Zero Hunger</h3>
-                    <p>Reducing post-harvest loss through faster farm-to-market pipelines ensures more food is available
-                        for the population.</p>
-                </div>
-                <div class="sdg-card">
-                    <div class="sdg-number">8</div>
-                    <h3>Decent Work & Economic Growth</h3>
-                    <p>Fostering a more robust, fair, and modern agricultural economy that supports decent livelihoods
-                        for rural communities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Footer -->
     <footer class="footer">
@@ -350,11 +248,11 @@
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#prices">Prices</a>
-                <a href="#features">Features</a>
-                <a href="#sdg">Impact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="prices.html">Prices</a>
+                <a href="features.html">Features</a>
+                <a href="impact.html">Impact</a>
             </div>
             <div class="footer-contact">
                 <h4>Contact</h4>

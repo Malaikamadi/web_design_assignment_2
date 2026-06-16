@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Salone FarmHub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('assets/images/hero_background_1778826804447.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .auth-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-card {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-logo {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .auth-logo i {
+            color: var(--primary-color);
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .auth-tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: -2px;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .auth-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .auth-form .btn-submit {
+            margin-top: 1.5rem;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+        
+        .back-home:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-overlay"></div>
+        <div class="auth-card">
+            <div class="auth-logo">
+                <i class="fa-solid fa-leaf"></i> Salone FarmHub
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Login</div>
+                <div class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</div>
+            </div>
+
+            <div id="form-feedback" class="form-feedback"></div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login_email">Email</label>
+                    <input type="email" id="login_email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login_password">Password</label>
+                    <input type="password" id="login_password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Log In</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="reg_role">Role</label>
+                    <select id="reg_role" required>
+                        <option value="user">General User / Buyer</option>
+                        <option value="farmer">Farmer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reg_email">Email</label>
+                    <input type="email" id="reg_email" placeholder="Choose an email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg_password">Password</label>
+                    <input type="password" id="reg_password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Sign Up</button>
+            </form>
+
+            <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

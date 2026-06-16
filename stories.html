@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salone FarmHub - Empowering Sierra Leone's Farmers</title>
+    <meta name="description"
+        content="Connecting rural farmers in Sierra Leone to direct markets and real-time prices. A Digital Public Good for sustainable agriculture.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-leaf"></i> Salone FarmHub
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="prices.html">Prices</a>
+                <a href="features.html">Features</a>
+                <a href="stories.html">Stories</a>
+                <a href="impact.html">Impact</a>
+            </nav>
+            <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                <a href="login.html" class="nav-link" style="font-weight: 600; color: var(--primary-color);">Login</a>
+                <a href="index.html#join" class="btn btn-primary nav-cta">Join Now</a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+    <div style="padding-top: 80px;"></div>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="section" style="padding-bottom: 2rem;">
+        <div class="container reveal">
+            <div style="background: var(--primary-dark); color: white; border-radius: 20px; padding: 4rem 3rem; display: flex; gap: 3rem; align-items: center;">
+                <div style="flex: 1;">
+                    <span class="section-badge" style="background: rgba(255,255,255,0.2); color: white;">Featured Case Study</span>
+                    <h2 style="color: white; font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1rem;">How Aminata Doubled Her Income</h2>
+                    <p style="opacity: 0.9; font-size: 1.1rem; margin-bottom: 2rem;">By using Salone FarmHub to track cassava prices in Freetown, Aminata bypassed local middlemen and sold directly to a major processor, increasing her profit margin by 120%.</p>
+                </div>
+                <div style="flex: 1; text-align: center;">
+                    <i class="fa-solid fa-quote-right" style="font-size: 8rem; opacity: 0.1;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Testimonials Section (Database-driven) -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container text-center">
+            <span class="section-badge">Farmer Stories</span>
+            <h2 class="section-title">What Our Users Say</h2>
+            <p class="section-desc center-desc">Real feedback from smallholder farmers and buyers who have experienced
+                better market access with Salone FarmHub.</p>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Testimonials loaded dynamically from PostgreSQL database -->
+                <article class="testimonial-card loading-placeholder">
+                    <p><i class="fa-solid fa-spinner fa-spin"></i> Loading testimonials...</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+
+    
+    <section class="section text-center bg-light">
+        <div class="container reveal">
+            <h2 style="margin-bottom: 1rem;">Have a Success Story?</h2>
+            <p class="section-desc center-desc">We love hearing how Salone FarmHub has helped you grow your business. Share your experience to inspire others in the community.</p>
+            <a href="mailto:stories@salonefarmhub.sl" class="btn btn-primary btn-large">Submit Your Story</a>
+        </div>
+    </section>
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo footer-logo"><i class="fa-solid fa-leaf"></i> Salone FarmHub</a>
+                <p>A Digital Public Good solution for Sierra Leone.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="prices.html">Prices</a>
+                <a href="features.html">Features</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Freetown, Sierra Leone</p>
+                <p>info@salonefarmhub.sl</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Salone FarmHub. Designed for Web Design Assignment 2, By Alimatu Maliaka Jalloh and Isha
+                Dawonde .</p>
+        </div>
+    </footer>
+
+    <!-- Frontend Application Script -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

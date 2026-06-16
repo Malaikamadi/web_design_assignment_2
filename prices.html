@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salone FarmHub - Empowering Sierra Leone's Farmers</title>
+    <meta name="description"
+        content="Connecting rural farmers in Sierra Leone to direct markets and real-time prices. A Digital Public Good for sustainable agriculture.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-leaf"></i> Salone FarmHub
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="prices.html">Prices</a>
+                <a href="features.html">Features</a>
+                <a href="stories.html">Stories</a>
+                <a href="impact.html">Impact</a>
+            </nav>
+            <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                <a href="login.html" class="nav-link" style="font-weight: 600; color: var(--primary-color);">Login</a>
+                <a href="index.html#join" class="btn btn-primary nav-cta">Join Now</a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+    <div style="padding-top: 80px;"></div>
+
+
+    
+
+    
+
+    
+
+    
+    <section class="section text-center" style="padding-bottom: 0;">
+        <div class="container reveal">
+            <h1 class="hero-title" style="color: var(--primary-dark); font-size: 3rem;">Market Insights</h1>
+            <p class="section-desc center-desc">Our market prices are collected daily from major trading hubs across Sierra Leone by our network of verified field agents.</p>
+        </div>
+    </section>
+
+<!-- Market Prices Section (Database-driven) -->
+    <section class="section prices bg-light" id="prices">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge"><i class="fa-solid fa-database"></i> Live from Database</span>
+                <h2 class="section-title">Today's Market Prices</h2>
+                <p class="section-desc center-desc">Real-time crop prices from markets across Sierra Leone, updated
+                    daily and stored in our PostgreSQL database.</p>
+            </div>
+
+            <div class="prices-controls reveal">
+                <div class="filter-group">
+                    <label for="price-filter-crop"><i class="fa-solid fa-filter"></i> Filter by Crop:</label>
+                    <select id="price-filter-crop">
+                        <option value="">All Crops</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="prices-table-wrapper reveal">
+                <table class="prices-table" id="prices-table">
+                    <thead>
+                        <tr>
+                            <th>Crop</th>
+                            <th>Market</th>
+                            <th>Price</th>
+                            <th>Unit</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prices-table-body">
+                        <tr>
+                            <td colspan="5" class="loading-data">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Loading market prices...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="section text-center" style="background: var(--secondary-color); color: white;">
+        <div class="container reveal">
+            <h2 style="color: white; margin-bottom: 1rem;">Get Prices Offline via SMS/USSD</h2>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 1rem auto 2rem;">No internet? No problem. Dial *123# from any mobile phone in Sierra Leone to access today's crop prices.</p>
+            <button class="btn btn-primary btn-large" style="background: white; color: var(--secondary-color); border: none;">Learn How to Use USSD</button>
+        </div>
+    </section>
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo footer-logo"><i class="fa-solid fa-leaf"></i> Salone FarmHub</a>
+                <p>A Digital Public Good solution for Sierra Leone.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="prices.html">Prices</a>
+                <a href="features.html">Features</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Freetown, Sierra Leone</p>
+                <p>info@salonefarmhub.sl</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Salone FarmHub. Designed for Web Design Assignment 2, By Alimatu Maliaka Jalloh and Isha
+                Dawonde .</p>
+        </div>
+    </footer>
+
+    <!-- Frontend Application Script -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
