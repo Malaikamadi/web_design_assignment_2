@@ -40,6 +40,19 @@ app.use(express.static(path.join(__dirname), { extensions: ['html'] }));
 // API ROUTES
 // ============================================
 
+app.get('/api/setup-db', async (req, res) => {
+    const fs = require('fs');
+    const path = require('path');
+    const { pool } = require('./db/index');
+    try {
+        const schema = fs.readFileSync(path.join(__dirname, 'db', 'schema.sql'), 'utf8');
+        await pool.query(schema);
+        res.status(200).json({ success: true, message: 'Database setup successful!' });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 // ------------------------------------------
 // AUTHENTICATION
 // ------------------------------------------
